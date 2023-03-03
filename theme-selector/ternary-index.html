@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+style="
+transition: 0.5s;
+">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Selector</title>
+</head>
+<body style="
+  font-family: system-ui;
+  font-weight: 600;
+  transition: 0.5s;
+">
+  <fieldset>
+    <label for="theme">Select theme: </label>
+      <select id="theme">
+        <option value="light-theme">Light</option>
+        <option value="dark-theme">Dark</option>
+      </select>
+  </fieldset>
+
+  <fieldset>
+    <h1>This is my website, feel free to change the theme.</h1>
+  </fieldset>
+
+
+  <script>
+    const select = document.querySelector('select');
+    const html = document.querySelector('html');
+    document.body.style.padding = '10px';
+
+    function updateTheme(bgColor, textColor) {
+      html.style.backgroundColor = bgColor;
+      html.style.color = textColor;
+    }
+
+    select.addEventListener('change', () => select.value === 'dark-theme'
+      ? updateTheme('black', 'white')
+      : updateTheme('white', 'black')
+    );
+  </script>
+</body>
+</html>

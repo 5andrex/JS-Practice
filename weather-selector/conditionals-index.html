@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Today</title>
+</head>
+<body
+style="
+  font-size: large;
+  font-family: system-ui, -apple-system;
+  font-weight: 500;
+">
+<fieldset>
+  <label for="weather"> Select the Weather today: </label>
+    <select id="weather">
+      <option value="">--Select a Value--</option>
+      <option value="sunny-optn">Sunny</option>
+      <option value="rainy-optn">Rainy</option>
+      <option value="snowing-optn">Snowing</option>
+      <option value="overcast-optn">Overcast</option>
+    </select>
+</fieldset>
+
+<fieldset>
+  <p>What is the Weather today?</p>
+</fieldset>
+
+
+
+  <script>
+    const select = document.querySelector('select');
+    const parag = document.querySelector('p');
+    let temperature = 88;
+
+    select.addEventListener('change', setWeather);
+
+    // re-write the setWeather to a switch case statement
+    function setWeather(){
+      switch(select.value) {
+        
+        case 'sunny-optn':
+          if(temperature <86) {
+            parag.innerText = `It is ${temperature} degrees outside - nice and sunny. Let's go out to the beach, or the park, and get an ice cream.`
+          }
+          else if(temperature >=86) {
+            parag.innerText = `It is ${temperature} degrees outside - REALLY HOT! If you want to go outside, make sure to put some sunscreen on`
+          }
+        break;
+
+        case 'rainy-optn':
+          parag.innerText = "Rain is falling outside; take a rain coat and an umbrella, and don\'t stay out for too long."
+        break;
+
+        case 'snowing-optn':
+          parag.innerText = "The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman"
+        break;
+
+        case 'overcast-optn':
+        parag.innerText = "It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case."
+        break;
+
+        default:
+          parag.innerText = "What is the Weather today?";
+       }
+      }
+
+  </script>
+</body>
+</html>
